@@ -1,18 +1,24 @@
 // Select color input
-const colorChoice = document.querySelector("#colorPicker");
+var color;
 
 // Select size input
-const gridHeightInput = document.querySelector("#inputHeight");
-const gridWidthInput = document.querySelector("#inputWidth");
+var height;
+var width;
 
 // When size is submitted by the user, call makeGrid()
-document.querySelector("#sizePicker").addEventListener("submit", makeGrid);
+const submitButton = document.querySelector('#sizePicker');
 
-function makeGrid(event) {
+submitButton.addEventListener('submit', function (event) {
     event.preventDefault();
+    height = document.querySelector('#inputHeight').value;
+    width = document.querySelector('#inputWidth').value;
+    makeGrid(height, width);
+});
+
+function makeGrid(height, width) {
 
 }
 
-console.log('grid height is ' + gridHeight);
-console.log('grid width is ' + gridWidth);
-console.log('color choice is ' + colorChoice);
+
+
+console.log('color choice is ' + color);
