@@ -21,7 +21,7 @@ submitButton.addEventListener('submit', function (event) {
 // Change color
 colorChoice.addEventListener('change', function() {
     color = colorChoice.value;
-})
+});
 
 function makeGrid(h, w) {
     event.preventDefault();
@@ -47,8 +47,8 @@ function makeGrid(h, w) {
         attached = true;
         canvas.addEventListener('click', function(event) {
             if (!event.target.hasAttribute('style')) {
-                event.target.setAttribute('style', 'background-color: ' 
-                + color);
+                event.target.setAttribute('style', 'background-color: ' + 
+                color);
             } else {
                 event.target.removeAttribute('style');
             }
