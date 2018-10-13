@@ -1,11 +1,12 @@
-// Select color input
-var color;
+// Set default color value
+const colorChoice = document.querySelector('#colorPicker');
+let color = colorChoice.value;
 
 // Select size input
-var height, width;
+let height, width;
 
-// EventListener attached set to false on page load
-var attached = false;
+// EventListener attached variable set to false initially
+let attached = false;
 
 // When size is submitted by the user, call makeGrid()
 const submitButton = document.querySelector('#sizePicker');
@@ -17,10 +18,16 @@ submitButton.addEventListener('submit', function (event) {
     makeGrid(height, width);
 });
 
+// Change color
+colorChoice.addEventListener('change', function() {
+    color = colorChoice.value;
+})
+
 function makeGrid(h, w) {
     event.preventDefault();
     const canvas = document.querySelector('#pixelCanvas');
 
+    // Clears the grid
     while (canvas.firstChild) {
         canvas.removeChild(canvas.firstChild);
     }
@@ -35,6 +42,7 @@ function makeGrid(h, w) {
         }
     }
 
+    // Check if EventListener is already attached to prevent multiples
     if (!attached) {
         attached = true;
         canvas.addEventListener('click', function(event) {
