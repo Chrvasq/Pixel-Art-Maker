@@ -46,11 +46,13 @@ function makeGrid(h, w) {
     if (!attached) {
         attached = true;
         canvas.addEventListener('click', function(event) {
-            if (!event.target.hasAttribute('style')) {
-                event.target.setAttribute('style', 'background-color: ' + 
-                color);
-            } else {
-                event.target.removeAttribute('style');
+            if (event.target.nodeName === 'TD') { // Verify target is td element
+                if (!event.target.hasAttribute('style')) {
+                    event.target.setAttribute('style', 'background-color: ' + 
+                    color);
+                } else {
+                    event.target.removeAttribute('style');
+                }
             }
         });
     }
